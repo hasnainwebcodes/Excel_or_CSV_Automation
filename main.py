@@ -200,4 +200,6 @@ def excel_to_pdf():
         return send_file(output_path, as_attachment=True)
     return render_template("exceltopdf.html")
 
-app.run(port=3010)
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 3010))
+    app.run(host="0.0.0.0", port=port)
